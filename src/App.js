@@ -1,25 +1,44 @@
 import logo from './logo.svg';
+import {Component} from 'react';
 import './App.css';
+import Brand from './components/Brand';
+import Menu from './components/Menu';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  opciones = ["Inicio", "Catálogo", "Contacto"];
+
+  constructor(){
+    super();
+    this.state = {title: '', opciones: this.opciones}
+  }
+
+  // cambiarState(){
+  //   this.setState({title: 'Fragantos'});
+  // }
+
+  componentDidMount(){
+    
+  }
+  componentDidUpdate(){
+    
+  }
+
+  componentWillUnmount(){
+    
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <header className="App-header">
+          {/* Brand */}
+          <Brand>{this.state.title}</Brand>
+  
+          {/* Menu */}
+         <Menu opciones={this.opciones} />
+  
+        </header>
+      </div>
+    );
+  }
 }
-
-export default App;
